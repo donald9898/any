@@ -8,12 +8,17 @@
 		function getQueryString() {
 			var result = location.search.match(new RegExp("[\?\&][^\?\&]+=[^\?\&]+", "g"));
 			for (var i = 0; i < result.length; i++) {
-				result[i] = result[i].substring(3);
+				result[i] = result[i].substring(3);  //因为这里用了?k=作为前缀
 			}
 			return result;
 		}
 		let a = getQueryString()
-		window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?state=key'+a+'&appid=wxe88841821d99c356&redirect_uri=http://ddns.greencyw.com&response_type=code&scope=snsapi_base#wechat_redirect'
+		if (a.substring(0,2)=='u_'){
+			window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?state=key'+a+'&appid=wxe88841821d99c356&redirect_uri=http://ddns.greencyw.com&response_type=code&scope=snsapi_userinfo#wechat_redirect'
+		}else{
+			window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?state=key'+a+'&appid=wxe88841821d99c356&redirect_uri=http://ddns.greencyw.com&response_type=code&scope=snsapi_base#wechat_redirect'
+		}
+		
 	</script>
 
 </head>
